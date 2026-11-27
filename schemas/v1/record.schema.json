@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/hedgehog-solutions-org/genealogical-document-spec/main/schemas/v1/record.schema.json",
+  "title": "Genealogical document: record",
+  "description": "One entry of a book, as transcribed: a birth, a marriage, a death, a household, a letter's paragraph. It lives in a part of the book. Genealogical Document Spec 1.x. SPEC.md lists the rules a schema cannot express.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {}
+  },
+  "required": [
+    "id",
+    "scans",
+    "fields"
+  ],
+  "properties": {
+    "id": {
+      "description": "Identifier of the record: unique within the book, given once, never changed and never given to another record. Opaque. Software that creates a record generates 12 random characters.",
+      "type": "string",
+      "pattern": "^[a-z0-9]{1,32}$"
+    },
+    "type": {
+      "description": "What the entry records: birth, marriage, death, other, or another word a collection needs. Left out when no type fits (a household of a confession list).",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "year": {
+      "description": "Year of the entry. Must lie within the years of its part when the part gives them, otherwise within the book's yearFrom–yearTo. Left out when it is not known.",
+      "type": "integer"
+    },
+    "no": {
+      "description": "Entry number, as written in the source. Left out when the source has none.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "date": {
+      "description": "Date text, as written in the source. Left out when the source has none.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "scans": {
+      "description": "Ids of the scans the entry appears on, in reading order. What an id is, the book's scanSource says. Empty when there is no scan.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "fields": {
+      "description": "What the entry says, keyed by the keys its part declares in `fields`. Plain text. Only declared keys; the part's first field must be filled; any other is left out when empty.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    }
+  }
+}

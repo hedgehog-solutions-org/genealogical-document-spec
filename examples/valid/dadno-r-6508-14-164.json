@@ -1,0 +1,139 @@
+{
+  "spec": "1.0",
+  "id": "dadno-r-6508-14-164",
+  "place": "Домоткань",
+  "archive": {
+    "name": "ДАДнО",
+    "fonds": "Р-6508",
+    "inventory": "14",
+    "file": "164"
+  },
+  "title": "Записи актів про народження, 1946 р.",
+  "description": "Книга державної реєстрації актів цивільного стану про народження. Домотканська сільська рада, 1946.",
+  "yearFrom": 1946,
+  "yearTo": 1946,
+  "language": [
+    "ru",
+    "uk"
+  ],
+  "authors": [
+    {
+      "name": "Olena Example",
+      "email": "olena@example.org",
+      "role": "transcriber"
+    },
+    {
+      "name": "Taras Example",
+      "email": "taras@example.org",
+      "url": "https://example.org/taras",
+      "role": "reviewer"
+    }
+  ],
+  "license": "LicenseRef-Example-Commercial",
+  "licenseUrl": "https://example.org/licence",
+  "generator": {
+    "name": "transcribing-skills",
+    "version": "1.0.0"
+  },
+  "createdAt": "2026-11-23",
+  "updatedAt": "2026-11-24",
+  "parts": [
+    {
+      "id": "births",
+      "title": "Народження",
+      "status": "draft",
+      "fields": [
+        {
+          "key": "child",
+          "label": {
+            "uk": "Дитина",
+            "en": "Child"
+          }
+        },
+        {
+          "key": "sex",
+          "label": {
+            "uk": "Стать",
+            "en": "Sex"
+          }
+        },
+        {
+          "key": "born",
+          "label": {
+            "uk": "Дата народження",
+            "en": "Date of birth"
+          }
+        },
+        {
+          "key": "father",
+          "label": {
+            "uk": "Батько",
+            "en": "Father"
+          }
+        },
+        {
+          "key": "mother",
+          "label": {
+            "uk": "Мати",
+            "en": "Mother"
+          }
+        },
+        {
+          "key": "informant",
+          "label": {
+            "uk": "Заявник",
+            "en": "Informant"
+          }
+        },
+        {
+          "key": "notes",
+          "label": {
+            "uk": "Примітки",
+            "en": "Notes"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "3737mzyz5yuv",
+          "type": "birth",
+          "year": 1946,
+          "no": "1",
+          "date": "11.01.1946",
+          "scans": [
+            "120645240_00316",
+            "120645240_00317"
+          ],
+          "fields": {
+            "child": "Дунай Володя",
+            "sex": "чоловіча",
+            "born": "08.01.1946",
+            "father": "Дунай Григорий Павлович, Украинец, 27 років, Колхозник",
+            "mother": "Дунай Мария Ивановна, Русская, 25 років, Колхозница",
+            "informant": "Дунай Григорий Пав, с. Домоткань, Временное удостоверение № __196__"
+          }
+        },
+        {
+          "id": "b9ckk7znpdz4",
+          "type": "birth",
+          "year": 1946,
+          "no": "16",
+          "date": "14.06.1946",
+          "scans": [
+            "120645240_00346",
+            "120645240_00347"
+          ],
+          "fields": {
+            "child": "Бугай Олег",
+            "sex": "чоловіча",
+            "born": "09.06.1946",
+            "father": "Бугай Петер Тарасович, Украинец, 26 років, Учащейся",
+            "mother": "Запара Мария Михайловна, Украинка, 20 років, Кол-ца",
+            "notes": "зав. медпункту ~~Сарман~~; підпис [unreadable]"
+          }
+        }
+      ]
+    }
+  ],
+  "x-collection": "example"
+}

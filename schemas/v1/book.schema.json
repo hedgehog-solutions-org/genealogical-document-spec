@@ -1,0 +1,338 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/hedgehog-solutions-org/genealogical-document-spec/main/schemas/v1/book.schema.json",
+  "title": "Genealogical document: book",
+  "description": "A transcript of one archive file: its description, who transcribed it and under which licence, and its parts with their records. Genealogical Document Spec 1.x. SPEC.md lists the rules a schema cannot express.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {}
+  },
+  "required": [
+    "spec",
+    "id",
+    "place",
+    "title",
+    "description",
+    "yearFrom",
+    "yearTo",
+    "authors",
+    "license",
+    "createdAt",
+    "updatedAt",
+    "parts"
+  ],
+  "properties": {
+    "spec": {
+      "description": "Version of this spec the document follows, as MAJOR.MINOR.",
+      "type": "string",
+      "pattern": "^1\\.(0|[1-9]\\d*)$"
+    },
+    "id": {
+      "description": "Identifier of the document, unique within a collection. A published document's file is named <id>.json. It should not change once published.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "place": {
+      "description": "The place the book belongs to, at whatever scale fits all of it: a village, a town, a county, a province.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "archive": {
+      "description": "Where the original is kept, when it is kept in an archive. Left out for a document that belongs to no archive (a letter in a family's hands).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "description": "The archive.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "fonds": {
+          "description": "Fonds.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "inventory": {
+          "description": "Inventory within the fonds.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "file": {
+          "description": "File within the inventory.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "title": {
+      "description": "Short title: what the book records and when.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "description": {
+      "description": "What the book is, in a sentence or two.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "yearFrom": {
+      "description": "First year the book covers. Must not be after yearTo.",
+      "type": "integer"
+    },
+    "yearTo": {
+      "description": "Last year the book covers.",
+      "type": "integer"
+    },
+    "language": {
+      "description": "Languages the source is written in, as BCP 47 tags, main one first (e.g. [\"uk\", \"cu\"]).",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$"
+      }
+    },
+    "authors": {
+      "description": "The people or organisations who made the transcript, the main author first.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "email"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "email": {
+            "description": "Address at which the author can be reached about the transcript.",
+            "type": "string",
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://\\S+$"
+          },
+          "role": {
+            "description": "transcriber: made the reading; reviewer: checked it against the scans; editor: prepared it for publication.",
+            "enum": [
+              "transcriber",
+              "reviewer",
+              "editor"
+            ]
+          }
+        }
+      }
+    },
+    "license": {
+      "description": "Terms under which the transcript may be used: an SPDX licence identifier (\"CC-BY-4.0\", \"CC0-1.0\"), or \"LicenseRef-<name>\" for any other terms, with licenseUrl.",
+      "type": "string",
+      "pattern": "^\\S(.*\\S)?$"
+    },
+    "licenseUrl": {
+      "description": "Where the licence text is. Required when license is a LicenseRef-.",
+      "type": "string",
+      "pattern": "^https?://\\S+$"
+    },
+    "generator": {
+      "description": "The tool or model that produced the machine reading, if one did.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "scanSource": {
+      "description": "Where the scans named by the records come from and what their ids look like. Without it a scan id is the name of an image file kept beside the document, without the extension.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "description": "Name of the source, e.g. \"FamilySearch\"",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "url": {
+          "description": "Address of the collection, film or file the scans belong to.",
+          "type": "string",
+          "pattern": "^https?://\\S+$"
+        },
+        "idPattern": {
+          "description": "Regular expression every scan id of the document must match in full. Use only syntax that means the same in ECMAScript and Python.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "urlTemplate": {
+          "description": "Address of one scan, with {id} where the scan id goes.",
+          "type": "string",
+          "pattern": "^https?://\\S*\\{id\\}\\S*$"
+        }
+      }
+    },
+    "createdAt": {
+      "description": "Day the transcript was made, as YYYY-MM-DD. Set once.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "updatedAt": {
+      "description": "Day a reading in the transcript was last changed, as YYYY-MM-DD. Must not be before createdAt.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "parts": {
+      "description": "The parts of the book, in display order, at least one. Part ids must be unique.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/part"
+      }
+    }
+  },
+  "if": {
+    "required": [
+      "license"
+    ],
+    "properties": {
+      "license": {
+        "pattern": "^LicenseRef-"
+      }
+    }
+  },
+  "then": {
+    "required": [
+      "licenseUrl"
+    ]
+  },
+  "definitions": {
+    "part": {
+      "description": "A run of records that share a field list: the births of a parish register, the one table of a civil register.",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^x-": {}
+      },
+      "required": [
+        "id",
+        "title",
+        "status",
+        "fields",
+        "records"
+      ],
+      "properties": {
+        "id": {
+          "description": "Identifier of the part, unique within the book. It should not change once published.",
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": {
+          "description": "Heading of the part, e.g. \"Народження\", \"Marriages\".",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "place": {
+          "description": "The village, town or city this part belongs to, when it is not the book's: one parish of a volume that binds several together.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "yearFrom": {
+          "description": "First year this part covers, when it covers fewer years than the book. Given together with yearTo; both lie within the book's years.",
+          "type": "integer"
+        },
+        "yearTo": {
+          "description": "Last year this part covers. Not before yearFrom.",
+          "type": "integer"
+        },
+        "status": {
+          "description": "draft: a machine reading no person has checked; done: every record of the part checked against its scan by a person.",
+          "enum": [
+            "draft",
+            "done"
+          ]
+        },
+        "fields": {
+          "description": "The fields this part's records carry, in display order. The first is a record's headline. Keys must be unique within the part, and every label of the book must be given in the same languages.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "label"
+            ],
+            "properties": {
+              "key": {
+                "description": "Name used in each record's `fields`.",
+                "type": "string",
+                "pattern": "^[a-z][a-zA-Z0-9]*$"
+              },
+              "label": {
+                "description": "The field's label, keyed by BCP 47 language tag.",
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": false,
+                "patternProperties": {
+                  "^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "records": {
+          "description": "The part's entries, in the order of the source.",
+          "type": "array",
+          "items": {
+            "$ref": "record.schema.json"
+          }
+        }
+      },
+      "dependencies": {
+        "yearFrom": [
+          "yearTo"
+        ],
+        "yearTo": [
+          "yearFrom"
+        ]
+      }
+    }
+  }
+}

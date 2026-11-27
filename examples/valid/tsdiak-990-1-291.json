@@ -1,0 +1,146 @@
+{
+  "spec": "1.0",
+  "id": "tsdiak-990-1-291",
+  "place": "Золотоніська протопопія",
+  "archive": {
+    "name": "ЦДІАК",
+    "fonds": "990",
+    "inventory": "1",
+    "file": "291"
+  },
+  "title": "Сповідні розписи, 1758",
+  "description": "Сповідні розписи парафій протопопії: двори села за дворами, по одній частині на парафію.",
+  "yearFrom": 1758,
+  "yearTo": 1758,
+  "language": [
+    "uk",
+    "cu"
+  ],
+  "authors": [
+    {
+      "name": "Olena Example",
+      "email": "olena@example.org",
+      "role": "transcriber"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "createdAt": "2026-11-25",
+  "updatedAt": "2026-11-26",
+  "parts": [
+    {
+      "id": "domotkan",
+      "title": "Домоткань",
+      "place": "Домоткань",
+      "status": "done",
+      "fields": [
+        {
+          "key": "head",
+          "label": {
+            "uk": "Голова двору",
+            "en": "Head of household"
+          }
+        },
+        {
+          "key": "members",
+          "label": {
+            "uk": "Члени двору",
+            "en": "Members"
+          }
+        },
+        {
+          "key": "confession",
+          "label": {
+            "uk": "Сповідь",
+            "en": "Confession"
+          }
+        },
+        {
+          "key": "notes",
+          "label": {
+            "uk": "Примітки",
+            "en": "Notes"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "q7d2m9x4b1ke",
+          "year": 1758,
+          "no": "1",
+          "scans": [
+            "арк. 12"
+          ],
+          "fields": {
+            "head": "Іванъ Лобовко, 40",
+            "members": "жена его Марія, 35; дѣти ихъ: Петръ, 12; __Анна__, 9",
+            "confession": "были"
+          }
+        },
+        {
+          "id": "h3v8c5n0w6ty",
+          "year": 1758,
+          "no": "2",
+          "scans": [
+            "арк. 12",
+            "арк. 12зв"
+          ],
+          "fields": {
+            "head": "вдова Евдокія Бугаиха, 60",
+            "members": "сынъ ея Кузьма, 30",
+            "confession": "были"
+          }
+        }
+      ]
+    },
+    {
+      "id": "borodaivka",
+      "title": "Бородаївка",
+      "place": "Бородаївка",
+      "status": "draft",
+      "fields": [
+        {
+          "key": "head",
+          "label": {
+            "uk": "Голова двору",
+            "en": "Head of household"
+          }
+        },
+        {
+          "key": "members",
+          "label": {
+            "uk": "Члени двору",
+            "en": "Members"
+          }
+        },
+        {
+          "key": "confession",
+          "label": {
+            "uk": "Сповідь",
+            "en": "Confession"
+          }
+        },
+        {
+          "key": "notes",
+          "label": {
+            "uk": "Примітки",
+            "en": "Notes"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "z1r6f4j9p2ua",
+          "no": "1",
+          "scans": [
+            "арк. 31"
+          ],
+          "fields": {
+            "head": "Семенъ ~~Сиратъ~~, 50",
+            "members": "[unreadable]",
+            "notes": "аркуш без року, вшито серед розписів 1758 р."
+          }
+        }
+      ]
+    }
+  ]
+}

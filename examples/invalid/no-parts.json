@@ -1,0 +1,25 @@
+{
+  "spec": "1.0",
+  "id": "no-parts",
+  "place": "Kyiv",
+  "archive": {
+    "name": "ЦДІАК",
+    "fonds": "127",
+    "inventory": "1012",
+    "file": "1"
+  },
+  "title": "Parish register, 1850",
+  "description": "The smallest valid document: required keys only, scans as local image files.",
+  "yearFrom": 1850,
+  "yearTo": 1850,
+  "authors": [
+    {
+      "name": "Olena Example",
+      "email": "olena@example.org"
+    }
+  ],
+  "license": "CC0-1.0",
+  "createdAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "parts": []
+}

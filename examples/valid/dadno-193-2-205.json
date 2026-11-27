@@ -1,0 +1,223 @@
+{
+  "spec": "1.0",
+  "id": "dadno-193-2-205",
+  "place": "Домоткань",
+  "archive": {
+    "name": "ДАДнО",
+    "fonds": "193",
+    "inventory": "2",
+    "file": "205"
+  },
+  "title": "Метрична книга, 1919–1921",
+  "description": "Метрична книга Свято-Покровської церкви с. Домоткань: народження, шлюби, смерті.",
+  "yearFrom": 1919,
+  "yearTo": 1921,
+  "language": [
+    "ru"
+  ],
+  "authors": [
+    {
+      "name": "Olena Example",
+      "email": "olena@example.org",
+      "role": "transcriber"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "scanSource": {
+    "name": "FamilySearch",
+    "url": "https://www.familysearch.org/search/film/007805907",
+    "idPattern": "\\d{9}_\\d{5}"
+  },
+  "createdAt": "2026-11-23",
+  "updatedAt": "2026-11-24",
+  "parts": [
+    {
+      "id": "births",
+      "title": "Народження",
+      "status": "done",
+      "fields": [
+        {
+          "key": "child",
+          "label": {
+            "uk": "Дитина",
+            "en": "Child"
+          }
+        },
+        {
+          "key": "born",
+          "label": {
+            "uk": "Дата народження",
+            "en": "Date of birth"
+          }
+        },
+        {
+          "key": "baptized",
+          "label": {
+            "uk": "Дата хрещення",
+            "en": "Date of baptism"
+          }
+        },
+        {
+          "key": "parents",
+          "label": {
+            "uk": "Батьки",
+            "en": "Parents"
+          }
+        },
+        {
+          "key": "godparents",
+          "label": {
+            "uk": "Восприємники",
+            "en": "Godparents"
+          }
+        },
+        {
+          "key": "notes",
+          "label": {
+            "uk": "Примітки",
+            "en": "Notes"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "2s9eoxmcusb1",
+          "type": "birth",
+          "year": 1919,
+          "no": "жін. 19",
+          "scans": [
+            "007805907_00638"
+          ],
+          "fields": {
+            "child": "Пелагія",
+            "born": "03.05.1919",
+            "baptized": "04.05.1919",
+            "parents": "Петръ Лобовко и Марѳа Ѳеодорова",
+            "godparents": "Іоаннъ __Сизенко__ и Анна Бугай"
+          }
+        },
+        {
+          "id": "zxxz7su1k1v7",
+          "type": "other",
+          "year": 1921,
+          "scans": [
+            "007805907_00640"
+          ],
+          "fields": {
+            "child": "Рѣшеніе суда объ исправленіи записи № 19",
+            "notes": "вклеено между листами"
+          }
+        }
+      ]
+    },
+    {
+      "id": "marriages",
+      "title": "Шлюби",
+      "yearFrom": 1919,
+      "yearTo": 1919,
+      "status": "draft",
+      "fields": [
+        {
+          "key": "groom",
+          "label": {
+            "uk": "Наречений",
+            "en": "Groom"
+          }
+        },
+        {
+          "key": "bride",
+          "label": {
+            "uk": "Наречена",
+            "en": "Bride"
+          }
+        },
+        {
+          "key": "witnesses",
+          "label": {
+            "uk": "Поручителі",
+            "en": "Witnesses"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "y7tb52izllss",
+          "type": "marriage",
+          "year": 1919,
+          "no": "56",
+          "date": "10.11.1919",
+          "scans": [
+            "007805907_00692"
+          ],
+          "fields": {
+            "groom": "Иванъ Германовъ Лобовко, 22",
+            "bride": "Анна Михайлова __Букіевичъ__, 19",
+            "witnesses": "Максимъ Іосифовъ Троценко, Кузьма Карповъ Бугай"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deaths",
+      "title": "Смерті",
+      "yearFrom": 1920,
+      "yearTo": 1920,
+      "status": "draft",
+      "fields": [
+        {
+          "key": "deceased",
+          "label": {
+            "uk": "Померлий",
+            "en": "Deceased"
+          }
+        },
+        {
+          "key": "died",
+          "label": {
+            "uk": "Дата смерті",
+            "en": "Date of death"
+          }
+        },
+        {
+          "key": "buried",
+          "label": {
+            "uk": "Дата поховання",
+            "en": "Date of burial"
+          }
+        },
+        {
+          "key": "age",
+          "label": {
+            "uk": "Вік",
+            "en": "Age"
+          }
+        },
+        {
+          "key": "cause",
+          "label": {
+            "uk": "Причина",
+            "en": "Cause"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "iiwpatngcjpx",
+          "type": "death",
+          "year": 1920,
+          "no": "жін. 26",
+          "scans": [
+            "007805907_00711"
+          ],
+          "fields": {
+            "deceased": "Анна, дочь Макарія Петрова Сизенка",
+            "died": "23.04.1920",
+            "buried": "24.04.1920",
+            "age": "2 года",
+            "cause": "[unreadable]"
+          }
+        }
+      ]
+    }
+  ]
+}

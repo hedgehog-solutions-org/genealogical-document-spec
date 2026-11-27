@@ -1,0 +1,61 @@
+{
+  "spec": "1.0",
+  "id": "other-name",
+  "place": "Kyiv",
+  "archive": {
+    "name": "ЦДІАК",
+    "fonds": "127",
+    "inventory": "1012",
+    "file": "1"
+  },
+  "title": "Parish register, 1850",
+  "description": "The smallest valid document: required keys only, scans as local image files.",
+  "yearFrom": 1850,
+  "yearTo": 1850,
+  "authors": [
+    {
+      "name": "Olena Example",
+      "email": "olena@example.org"
+    }
+  ],
+  "license": "CC0-1.0",
+  "createdAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "parts": [
+    {
+      "id": "births",
+      "title": "Births",
+      "status": "draft",
+      "fields": [
+        {
+          "key": "entry",
+          "label": {
+            "en": "Entry"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "t51iq2iq1rwp",
+          "type": "other",
+          "year": 1850,
+          "scans": [
+            "page 001"
+          ],
+          "fields": {
+            "entry": "Title page"
+          }
+        },
+        {
+          "id": "707bm3iskjzt",
+          "type": "birth",
+          "year": 1850,
+          "scans": [],
+          "fields": {
+            "entry": "Ivan, son of __Petro__ Koval"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Release
+
+# Run by hand after VERSION and CHANGELOG.md are updated on main.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install jsonschema
+      - run: python -m unittest discover -s tests
+      - name: Release notes from the changelog
+        id: notes
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          grep -q "SPEC_VERSION = \"$version\"" tools/validate.py \
+            || { echo "tools/validate.py does not say $version"; exit 1; }
+          awk -v v="$version" '$0 ~ "^## \\[" v "\\]" {on=1; next} /^## \[/ {on=0} on' CHANGELOG.md > notes.md
+          [ -s notes.md ] || { echo "CHANGELOG.md has no section for $version"; exit 1; }
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Tag and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ steps.notes.outputs.version }}" \
+            --title "Genealogical Document Spec ${{ steps.notes.outputs.version }}" \
+            --notes-file notes.md --target "$GITHUB_SHA" \
+            schemas/v1/book.schema.json schemas/v1/record.schema.json tools/validate.py
